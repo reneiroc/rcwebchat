@@ -1,1 +1,2 @@
-node-modules
+# ignorar los siguientes directorios 
+node-modules/
