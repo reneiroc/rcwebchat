@@ -46,15 +46,15 @@
 
 
  socket.on('new message', e =>{
-     $chat.append (e + '<br/>');
+     $chat.append ( '<b>' + e.nick + '</b>: ' + e.msg + '<br>');
  })
 
  socket.on('newusers', data => {
      let html= ''
- 
+    console.log(data);
     for (let i=0; i < data.length; i++){
 
-        html += `<p> ${data[i]} </p>`
+        html += `<p><i class="fas fa-user"></i> ${data[i]} </p>`
     }
     
     $usersname.html(html);
