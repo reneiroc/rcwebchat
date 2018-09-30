@@ -21,20 +21,23 @@
                     <img src="img/RC.jpg" style="width:70px;">
                     </a>
             </nav>
-    <div class="row">
+    <div class="row" style="margin:auto;">
         <!-- <div class="col"> </div> -->
-        <div class= "col" >
+        
             <!-- Seccion Login Box-->
             <div class="card  mx-auto mt-3 shadow rounded" id= "userloginbox" style="width: 18rem; text-align: center;">
                 <div class="card-header" >
                     <h4> Login</h4>
                 </div>
-                <!-- <div class="card-body"></div>     -->
-                <form class="card-body" id="nickUserform">
-                        <input type="text" id="nickName">
-                        <p id="nickError"></p>
+                
+                <form class="main-form card-body needs-validation" id="nickUserform" novalidate>
+                    <input type="text" id="nickName" class="form-control" required>
+                    <div class="invalid-feedback">
+                            Ingrese Nickname
+                    </div>
+                    <p id="nickError"></p>
 
-                        <button type="submit" class="btn btn-outline-primary">Send</button>
+                    <button type="submit" class="btn btn-outline-primary">Send</button>
                 </form>
                 
             </div>
@@ -42,44 +45,46 @@
 
             <!-- Seccion de chat Box-->
             <div class="container" id = "chatWrap">
-                
-                <div class="col-6">
-                <!-- Chat Box -->
-                <div class="card mt-3 " style="width:32em " >
-                    <div class="card-header">
-                        <h4> Lets chat</h4>
-                    </div>
-
-                    <div id="chat" class="card-body"></div>
-
-                    <form class="card-footer" id="message-form">
-                        <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="message" >
-                            <div class="input-group-append">
-                            <button class="btn btn-outline-primary " type="submit" >
-                                    <i class="fas fa-arrow-circle-right"></i> Enviar
-                            </button>
+              <div class="row">
+                <!-- Seccion Users Name List-->
+                <div class="col-md-3 mx-auto">
+                        <div class="card mt-3 shadow rounded" id= "userListBox">
+                            <div class="card-header">
+                                <h4>User Names</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="usersNameList"></div>
                             </div>
                         </div>
-                    </form>
                 </div>
+                <!-- Fin Seccion Users Name List-->
+                <div class="col-md-6 mx-auto">
+                <!-- Chat Box -->
+                    <div class="card mt-3 shadow rounded">
+                        <div class="card-header">
+                            <h4> Lets chat</h4>
+                        </div>
+
+                        <div id="chat" class="card-body"></div>
+
+                        <form class="card-footer" id="message-form">
+                            <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="message" >
+                                <div class="input-group-append">
+                                <button class="btn btn-outline-primary " type="submit" >
+                                        <i class="fas fa-arrow-circle-right"></i> Enviar
+                                </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
                 <!-- Fin chat Box -->
+                    </div>
 
                 </div>
-                <!-- Seccion Users Name List-->
-                <div class="col-3">
-                    <div class="card mt-3 shadow rounded" id= "userListBox">
-                        <div class="card-header">
-                          <h4>User Names</h4>
-                        </div>
-                        <div class="card-body">
-                            <div id="usersNameList"></div>
-                        </div>
-                    </div>
-                </div>
-                 <!-- Fin Seccion Users Name List-->
             </div>
-        </div>
+        
         <!-- <div class="col"></div> -->
     </div>
 </div>
@@ -89,5 +94,6 @@
         crossorigin="anonymous"></script>  
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/main.js" charset="utf-8" ></script>
+    
 </body>
 </html>

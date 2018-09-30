@@ -12,25 +12,34 @@
  const $usersname = $('#usersNameList')
 
  $nickForm.submit(e =>{
-     e.preventDefault();
-     //enviar usuario
-    socket.emit('new user', $nickname.val(), data =>{
-        if (data){
-            //MOstrar cuadro de mensajes y cuadro de Usuaiors
-            $('#chatWrap').show(); 
-            $('#userloginbox').hide()
-        }else{
-            //mostrar error
-            // Error no sale reivsar problema
-            $nickError.html(`
-                <div class = "alert alert-warning">
-                Usuario ya existe
-                </div>
-            `)
-        }    
-        $nickname.val('');
-        console.log(data);
-    } );
+     //Valido el formulario
+    var form = document.querySelector('.needs-validation');
+    if (form.checkValidity() === false){
+        event.preventDefault();
+        event.stopPropagation();
+    }else{
+        e.preventDefault();
+        //enviar usuario
+       socket.emit('new user', $nickname.val(), data =>{
+           if (data){
+               //MOstrar cuadro de mensajes y cuadro de Usuaiors
+               $('#chatWrap').show(); 
+               $('#userloginbox').hide()
+           }else{
+               //mostrar error
+               // Error no sale reivsar problema
+               $nickError.html(`
+                   <div class = "alert alert-warning">
+                   Usuario ya existe
+                   </div>
+               `)
+           }    
+           $nickname.val('');
+           console.log(data);
+       } );
+    }
+    //Agrego la clase al form para notificar validacion
+    form.classList.add('was-validated');
     
 
  })
